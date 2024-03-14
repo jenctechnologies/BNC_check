@@ -1,0 +1,376 @@
+{% extends 'nav_bar.html' %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link rel="stylesheet" href="../static/service_asset/css/user_css.css" />
+<style>
+    .fixed-size-image {
+    width: 150px; /* set your desired width */
+    height: 150px; /* set your desired height */
+    object-fit: cover;
+
+}
+.dropdown{
+             overflow: visible;
+             z-index: 10000;
+             color:black;
+         }
+         .dropdown .dropdown-content{
+             z-index: 1000;
+         }
+         .dropdown .dropbtn span {
+                 position: relative;
+                 bottom: -1px;
+                 padding: 10px 10px;
+                 padding-right: 1px;
+                 padding-left: 5px;
+ 
+ 
+             }
+         @media screen and (max-width: 768px) {
+             .dropdown .dropbtn span {
+                 position: relative;
+                 bottom: -5px;
+                 padding: 10px 10px;
+                 padding-right: 1px;
+                 padding-left: 5px;
+ 
+ 
+             }
+             .dropdown .dropbtn .fa {
+                 position: relative;
+                 bottom: -5px;
+                 padding: 10px 10px;
+                 padding-right: 1px;
+                 padding-left: 5px;
+                 text-decoration: none;
+                 background-color:  white !important;
+ 
+ 
+             }
+         }
+         .dropdown .dropbtn .fa {
+                 background-color:  white !important;
+ 
+ 
+             }
+        .dropdown:hover .dropbtn .fa {
+            background-color:  inherit !important;
+ 
+        }
+</style>
+
+<body>
+    <div class="main-content">
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
+                    href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">User profile</a>
+                <!-- Form -->
+                <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" type="text">
+                        </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav align-items-center d-none d-md-flex">
+                    <li class="nav-item dropdown">
+                        
+                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                            <div class=" dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome!</h6>
+                            </div>
+                            <a href="../examples/profile.html" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>My profile</span>
+                            </a>
+                            <a href="../examples/profile.html" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="../examples/profile.html" class="dropdown-item">
+                                <i class="ni ni-calendar-grid-58"></i>
+                                <span>Activity</span>
+                            </a>
+                            <a href="../examples/profile.html" class="dropdown-item">
+                                <i class="ni ni-support-16"></i>
+                                <span>Support</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Header -->
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+            style="min-height: 600px; background-size: cover; background-position: center top;">
+            <!-- Mask -->
+            <span class="mask bg-gradient-default opacity-8"></span>
+            <!-- Header container -->
+            <div class="container-fluid d-flex align-items-center">
+                <div class="row">
+                    <div class="col-lg-7 col-md-10">
+                        <h1 class="display-2 text-white">Hello {{user_details.0.first_name}} </h1>
+                        <p class="text-white mt-0 mb-5">This is your profile page.You can check and update your data</p>
+                        <a id="edit_button" href=" #! " class="btn btn-info ">Edit profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--7 ">
+            <div class="row ">
+                <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0 ">
+                    <div class="card card-profile shadow ">
+                        <div class="row justify-content-center ">
+                            <div class="col-lg-3 order-lg-2 ">
+                                <div class="card-profile-image ">
+                                    <a href="# ">
+                                        <img src="media/{{user_details.0.user_image}}"
+                                            class="rounded-circle fixed-size-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0 pt-md-4 ">
+                            <div class="row ">
+                                <div class="col ">
+                                    <div class="card-profile-stats d-flex justify-content-center mt-md-5 ">
+                                        <div>
+                                            <span class="heading "></span>
+                                            <span class="description "></span>
+                                        </div>
+                                        <div>
+                                            <span class="heading "></span>
+                                            <span class="description "></span>
+                                        </div>
+                                        <div>
+                                            <span class="heading "></span>
+                                            <span class="description "></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center ">
+                                <h3>
+                                    {{user_details.0.first_name}} {{user_details.0.last_name}}<span class="font-weight-light "></span>
+                                </h3>
+                                <div class="h5 font-weight-300 ">
+                                    <i class="ni location_pin mr-2 "></i>{{user_details.0.city}}, {{user_details.0.pincode}}
+                                </div>
+                                <div class="h5 mt-4 ">
+                                    <i class="ni business_briefcase-24 mr-2 "></i>{{user_details.0.brand_name}}
+                                </div>
+                                <hr class="my-4 ">
+                                <p>{{user_details.0.service_name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 order-xl-1 ">
+                    <div class="card bg-secondary shadow ">
+                        <div class="card-header bg-white border-0 ">
+                            <div class="row align-items-center ">
+                                <div class="col-8 ">
+                                    <h3 class="mb-0 ">My account</h3>
+                                </div>
+                                <div class="col-4 text-right ">
+                                    <a href="#! " class="btn btn-sm btn-primary ">Settings</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <form id="edit-profile-form" method="post" enctype="multipart/form-data" action='user_profile'>
+                                {% csrf_token %}
+                                <h6 class="heading-small text-muted mb-4 ">User information</h6>
+                                <div class="pl-lg-4 ">
+                                    <div class="row ">
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label "
+                                                    for="input-username ">Username</label>
+                                                    {{ form.username }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group ">
+                                                <label class="form-control-label " for="input-email ">Email
+                                                    address</label>
+                                                    {{ form.email_address }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-first-name ">First
+                                                    name</label>
+                                                    {{ form.first_name }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-last-name ">Last
+                                                    name</label>
+                                                    {{ form.last_name }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-last-name ">BNC Register Id</label>
+                                                {{ form.register_id }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-4 ">
+                                <!-- Address -->
+                                <h6 class="heading-small text-muted mb-4 ">Contact information</h6>
+                                <div class="pl-lg-4 ">
+                                    <div class="row ">
+                                        <div class="col-md-12 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-address ">Whatsapp
+                                                    Number</label>
+                                                    {{ form.whatsapp_number }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-12 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-address ">Instagram
+                                                    Link</label>
+                                                    {{ form.instagram_link }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-12 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-address ">Address</label>
+                                                {{ form.address }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-city ">City</label>
+                                                {{ form.city }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 ">
+                                            <div class="form-group ">
+                                                <label class="form-control-label " for="input-country ">Pin
+                                                    code</label>
+                                                    {{ form.pincode }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 class="heading-small text-muted mb-4 ">Company Details</h6>
+                                <div class="pl-lg-4 ">
+                                    <div class="row ">
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-username ">Brand</label>
+                                                {{ form.brand_name }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group ">
+                                                <label class="form-control-label " for="input-email ">Service</label>
+                                                {{ form.service_name }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-6 ">
+                                            <div class="form-group focused ">
+                                                <label class="form-control-label " for="input-first-name ">Office
+                                                    Address</label>
+                                                    {{ form.company_address }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button id="edit-profile-form" class='btn btn-info'  type="submit">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer ">
+        <div class="row align-items-center justify-content-xl-between ">
+            <div class="col-xl-6 m-auto text-center ">
+                <div class="copyright ">
+                    <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard " target="_blank ">Argon
+                            Dashboard</a> by Creative Tim</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="success-alert" style="display: none;">
+        <p>Profile updated successfully!</p>
+    </div>
+</body>
+<script>
+    console.log("run")
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    // Ensure jQuery is loaded before running scripts
+    $(document).ready(function () {
+        // Set initial state to read-only for all input fields
+        $("input").prop("readonly", true);
+
+        $("#edit_button").click(function () {
+            // Toggle read-only attribute for all input fields
+            $("input").prop("readonly", function (_, value) {
+                return !value;
+            });
+        });
+        console.log("Script executed successfully");
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#edit-profile-form').submit(function(event) {
+            location.reload();
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            // Send the form data using AJAX
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: form.serialize(), // Serialize form data
+                success: function(data) {
+                    // Handle success response
+                    alert('Profile updated successfully!');
+                },
+                error: function(xhr, errmsg, err) {
+                    // Handle error response
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

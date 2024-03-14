@@ -1,0 +1,99 @@
+{% extends 'nav_bar.html' %}
+{% block content %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Multiverse by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../static/gallery_assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../static/gallery_assets/css/noscript.css" />
+    </noscript>
+    <style>
+       .dropdown{
+            overflow: visible;
+            z-index: 10000;
+        }
+        .dropdown .dropdown-content{
+            z-index: 1000;
+        }
+        .dropdown .dropbtn span {
+                position: relative;
+                bottom: 10px;
+                padding: 10px 10px;
+                padding-right: 1px;
+                padding-left: 5px;
+
+
+            }
+        @media screen and (max-width: 768px) {
+            .dropdown .dropbtn span {
+                position: relative;
+                bottom: -5px;
+                padding: 10px 10px;
+                padding-right: 1px;
+                padding-left: 5px;
+
+
+            }
+            .dropdown .dropbtn .fa {
+                position: relative;
+                bottom: -5px;
+                padding: 10px 10px;
+                padding-right: 1px;
+                padding-left: 5px;
+
+
+            }
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="home"><strong>{{images.0.title}}</strong></a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#footer" class="icon solid fa-info-circle">BNC</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+            {% for image in images %}
+            <article class="thumb">
+                <a src="media/{{ image.pic }}" class="image"></a>
+            <a><img  src="media/{{ image.pic }}" alt="" /></a>
+
+            </article>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/gallery_assets/js/jquery.min.js"></script>
+    <script src="../static/gallery_assets/js/jquery.poptrox.min.js"></script>
+    <script src="../static/gallery_assets/js/browser.min.js"></script>
+    <script src="../static/gallery_assets/js/breakpoints.min.js"></script>
+    <script src="../static/gallery_assets/js/util.js"></script>
+    <script src="../static/gallery_assets/js/main.js"></script>
+
+</body>
+
+</html>
+{% endblock %}

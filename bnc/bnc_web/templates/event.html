@@ -1,0 +1,473 @@
+{% extends 'nav_bar.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <met+ charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Template Mo">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+            rel="stylesheet">
+
+        <title>bnc-event-images</title>
+
+
+        <link href="../static/meeting_vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/meeting_vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+        <link rel="stylesheet" href="../static/meeting_assets/css/fontawesome.css">
+        <link rel="stylesheet" href="../static/meeting_assets/css/templatemo-edu-meeting.css">
+        <link rel="stylesheet" href="../static/meeting_assets/css/owl.css">
+        <link rel="stylesheet" href="../static/meeting_assets/css/lightbox.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            /* Add a class for the blurred background */
+            .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+            .blur-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(5px);
+                /* Adjust the blur amount as needed */
+                z-index: 1;
+            }
+
+            /* Style for the modal */
+
+            .modal-content {
+                z-index: 2;
+            }
+
+            #modal-background {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(5px);
+                /* Apply blur effect to the modal background */
+                transition: opacity 0.5s ease;
+            }
+
+            #modal-content {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 70%;
+                /* Adjust the width as needed */
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+            }
+            .dropdown{
+            overflow: visible;
+            z-index: 10000;
+        }
+        .dropdown .dropdown-content{
+            z-index: 1000;
+        }
+        .dropdown .dropbtn span {
+                position: relative;
+                bottom: -1px;
+                padding: 10px 10px;
+                padding-right: 1px;
+                padding-left: 5px;
+
+
+            }
+        @media screen and (max-width: 768px) {
+            .dropdown #login_nav{
+                position: relative;
+                bottom: 1px;
+                left: -10px;
+             
+            }
+            .dropdown .dropbtn span {
+                position: relative;
+                bottom: -5px;
+                padding: 10px 10px;
+                padding-right: 1px;
+                padding-left: 5px;
+
+
+            }
+            .dropdown .dropbtn .fa {
+                position: relative;
+                bottom: -5px;
+                padding: 10px 10px;
+                padding-right: 1px;
+                padding-left: 5px;
+
+
+            }
+        }
+        </style>
+</head>
+
+<body>
+    <section class="heading-page header-text" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Our Events</h>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="meetings-page" id="meetings">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="filters">
+                                <ul>
+                                    <li data-filter="* " class="active ">All Events</li>
+                                    <li data-filter=".soon ">Upcoming Events</li>
+                                    <li data-filter=".imp ">Completed Events</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="row grid">
+                                {% for event in event_details %}
+                                <div id="event-1" class="col-lg-4 templatemo-item-col all">
+                                    <div class="meeting-item ">
+                                        <div class="thumb ">
+                                            <a href="meet-details " id="meeting-link "><img
+                                                    src="../static/meeting_assets/images/meeting-01.jpg " alt=" "></a>
+                                        </div>
+                                        <div class="down-content ">
+                                            <div class="date ">
+                                                <h6>{{ event.event_date|date:"F" }} <span>{{ event.event_date|date:"j" }}</span></h6>
+                                            </div>
+                                            <a href="meeting-details.html ">
+                                                <h4 id="event_name_url">{{ event.event_name}}</h4>
+                                            </a>
+                                            <p>{{ event.event_name}}<br>{{ event.event_details}}</p>
+                                            <br>
+                                            <a href="/bnc/event_gallery?title={{ event.event_name }}"id="button-register" style="background-color: #5e42a6; color: white; width: 150px; height: 50px; display: block; text-align: center; line-height: 50px;">Gallery</a><br><br>
+                                            <button id="button-detail-1"
+                                                style="background-color: #5e42a6;color: white;width: 150px; height: 50px;">
+                                                Details
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-lg-12 " style="display: none; ">
+                                <div class="pagination ">
+                                    <ul>
+                                        <li><a href="# ">1</a></li>
+                                        <li class="active "><a href="# ">2</a></li>
+                                        <li><a href="# ">3</a></li>
+                                        <li><a href="# "><i class="fa fa-angle-right "></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <div id="modal-background">
+        <div style="background-color: black;color:whitesmoke;" id="modal-content">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bankTransfer">Bank Transfer</option>
+                </select>
+
+                <button type="submit">Submit</button>
+            </form>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <!-- Blur background div -->
+    <div id="blurBackground" class="blur-background" style="display: none;"></div>
+
+    <!-- Modal -->
+    <div id="blurBackground" class="blur-background" style="display: none;"></div>
+
+    <!-- Modal -->
+    <div class="modal" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">Event Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add dynamic content for event details -->
+                    <div id="eventDetailsContent">
+                        <!-- Content will be dynamically populated here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-button" onclick="openPage()">
+        +
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Add a click event listener to the button
+        // Show the blurred background
+        // Show the modal using Bootstrap modal method
+        var event_data = document.querySelectorAll('[id^="button-detail-"]');
+        console.log(event_data)
+        event_data.forEach(function (element) {
+            element.addEventListener("click", function () {
+                // Show the blurred background
+                // Show the modal using Bootstrap modal method
+                $('#detailsModal').modal('show');
+            });
+
+        });
+
+        // Add a hidden.bs.modal event listener to hide the blurred background when the modal is closed
+        $('#detailsModal').on('hidden.bs.modal', function () { });
+    </script>
+
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/meeting_vendor/jquery/jquery.min.js "></script>
+    <script src="../static/meeting_vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+    <script src="../static/meeting_assets/js/isotope.min.js "></script>
+    <script src="../static/meeting_assets/js/owl-carousel.js "></script>
+    <script src="../static/meeting_assets/js/lightbox.js "></script>
+    <script src="../static/meeting_assets/js/tabs.js "></script>
+    <script src="../static/meeting_assets/js/isotope.js "></script>
+    <script src="../static/meeting_assets/js/video.js "></script>
+    <script src="../static/meeting_assets/js/slick-slider.js "></script>
+    <script src="../static/meeting_assets/js/custom.js "></script>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+            var
+                direction = section.replace(/#/, ''),
+                reqSection = $('.section').filter('[data-section=" ' + direction + ' "]'),
+                reqSectionPos = reqSection.offset().top - 0;
+
+            if (isAnimate) {
+                $('body, html').animate({
+                    scrollTop: reqSectionPos
+                },
+                    800);
+            } else {
+                $('body, html').scrollTop(reqSectionPos);
+            }
+
+        };
+
+        var checkSection = function checkSection() {
+            $('.section').each(function () {
+                var
+                    $this = $(this),
+                    topEdge = $this.offset().top - 80,
+                    bottomEdge = topEdge + $this.height(),
+                    wScroll = $(window).scrollTop();
+                if (topEdge < wScroll && bottomEdge > wScroll) {
+                    var
+                        currentId = $this.data('section'),
+                        reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+                    reqLink.closest('li').addClass('active').
+                        siblings().removeClass('active');
+                }
+            });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+            e.preventDefault();
+            showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+            checkSection();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded ", function () {
+            // Get all meeting links
+            var meetingLinks = document.querySelectorAll('[id^="meeting-link "]');
+
+            // Iterate through each meeting link
+            meetingLinks.forEach(function (meetingLink) {
+                // Handle the click event on each meeting link
+                meetingLink.addEventListener("click ", function (event) {
+                    // Prevent the default behavior of the link (preventing navigation for now)
+                    event.preventDefault();
+
+                    // Extract text details
+                    var meetingItem = meetingLink.closest('.meeting-item');
+                    var month = meetingItem.querySelector(".date h6 ").innerText;
+                    var date = meetingItem.querySelector(".date h6 span ").innerText;
+                    var eventName = meetingItem.querySelector(".down-content h4 ").innerText;
+                    var description = meetingItem.querySelector(".down-content p ").innerText;
+                    var price = meetingItem.querySelector(".thumb .price span ").innerText;
+                    var queryString = `?month=${encodeURIComponent(month)}&date=${encodeURIComponent(date)}&eventName=${encodeURIComponent(eventName)}&description=${encodeURIComponent(description)}&price=${encodeURIComponent(price)}`;
+
+                    // Construct the URL for the next HTML page with the query string
+                    var nextPageURL = meetingLink.getAttribute("href ") + queryString;
+
+                    // Navigate to the next HTML page
+                    window.location.href = nextPageURL;
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function isDateCompleted(targetDate) {
+                // Get the current date
+                var currentDate = new Date();
+
+                // Convert the target date to a Date object
+                var targetDateObj = new Date(targetDate);
+
+                // Compare the two dates
+                if (targetDateObj < currentDate) {
+                    // The target date has passed (completed)
+                    return true;
+                } else {
+                    // The target date is in the future
+                    return false;
+                }
+            }
+            // Get all meeting links
+            var event_data = document.querySelectorAll('[id^="event-"]');
+            event_data.forEach(function (element) {
+                // Access the h6 value for each element
+                var h6Value = element.querySelector('h6').innerText;
+                var parsedDate = new Date(h6Value);
+
+                // Format the parsed date as "YYYY-MM-DD"
+                var formattedDate = `${parsedDate.getFullYear()}-${padZero(parsedDate.getMonth() + 1)}-${padZero(parsedDate.getDate())}`;
+
+                // Helper function to pad a single-digit number with a leading zero
+                function padZero(number) {
+                    return number < 10 ? '0' + number : number;
+                }
+
+                var result = isDateCompleted(formattedDate);
+                if (result) { // completed
+                    console.log('The date has passed (completed).');
+                    element.classList.add('imp');
+                    element.querySelector("#button-register").innerText = "Gallery"
+                    element.querySelector("#button-register").addEventListener("click", function () {
+                        // window.location.href = "event_gallery";
+                    });
+
+
+                } else { //future 
+                    element.classList.add('soon');
+                    element.querySelector("#button-register").innerText = "Register"
+
+                }
+            });
+        });
+    </script>
+    <script>
+        function openModal() {
+            document.getElementById('modal-background').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal-background').style.display = 'none';
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function openPage() {
+        // Change the URL to the desired URL
+        window.location.href = 'meeting_assign';
+    }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Get the text content of the paragraph
+        var paragraphText = $("#myParagraph").text();
+    
+        // Make an AJAX request to your Django view
+        $.ajax({
+            url: '/your-django-view-url/',  // Replace with the actual URL of your Django view
+            type: 'POST',  // or 'GET' depending on your requirements
+            data: {
+                'text_data': paragraphText
+            },
+            success: function(response) {
+                // Handle the success response if needed
+                console.log('Data sent successfully');
+            },
+            error: function(error) {
+                // Handle the error if needed
+                console.error('Error sending data:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
+{% endblock %}

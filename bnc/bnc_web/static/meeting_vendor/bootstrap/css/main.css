@@ -1,0 +1,108 @@
+    /* Add a class for the blurred background */
+    .fixed-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 50%;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+        .blur-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            /* Adjust the blur amount as needed */
+            z-index: 1;
+        }
+
+        /* Style for the modal */
+
+        .modal-content {
+            z-index: 2;
+        }
+
+        #modal-background {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            /* Apply blur effect to the modal background */
+            transition: opacity 0.5s ease;
+        }
+
+        #modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            /* Adjust the width as needed */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        .dropdown{
+        overflow: visible;
+        z-index: 10000;
+    }
+    .dropdown .dropdown-content{
+        z-index: 1000;
+    }
+    .dropdown .dropbtn span {
+            position: relative;
+            bottom: -1px;
+            padding: 10px 10px;
+            padding-right: 1px;
+            padding-left: 5px;
+
+
+        }
+    @media screen and (max-width: 768px) {
+        .dropdown #login_nav{
+            position: relative;
+            bottom: 1px;
+            left: -10px;
+         
+        }
+        .dropdown .dropbtn span {
+            position: relative;
+            bottom: -5px;
+            padding: 10px 10px;
+            padding-right: 1px;
+            padding-left: 5px;
+
+
+        }
+        .dropdown .dropbtn .fa {
+            position: relative;
+            bottom: -5px;
+            padding: 10px 10px;
+            padding-right: 1px;
+            padding-left: 5px;
+
+
+        }
+    }

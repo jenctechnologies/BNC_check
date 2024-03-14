@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link href="../static/opening_assets/css/main.css" rel="stylesheet" />
+    <noscript>
+        <link rel="stylesheet" href="../static/opening_assets/css/noscript.css" />
+    </noscript>
+</head>
+<style>
+   .topnav {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    cursor: pointer;
+    z-index: 1000; /* Adjust the value as needed */
+}
+    .topnav #nav_1 {
+        float: right;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+    .dropdown {
+        float: right;
+        overflow: hidden;
+        padding: 14px 16px;
+        font-size: 17px;
+        display: block;
+
+    }
+
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: black;
+        padding: 14px 16px;
+        padding-right: 1px;
+        padding-left: 5px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+        background-color: #ddd;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 14px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown .dropbtn img {
+        width: 30px;
+        /* Adjust the width of the logo */
+        height: 30px;
+        /* Adjust the height of the logo */
+        /* Adjust the spacing between the logo and text */
+        margin-right: 5px;
+        display: left;
+    }
+
+    .dropdown .dropbtn span {
+        position: relative;
+        bottom: 10px;
+
+    }
+
+    @media screen and (max-width: 768px) {
+
+        /* Target screens less than 768px wide */
+
+        .topnav #nav_1 {
+            float: right;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 10px 10px;
+            text-decoration: none;
+            font-size: 10px;
+            position: relative;
+            bottom: -11px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 10px;
+            border: none;
+            outline: none;
+            color: black;
+            padding: 14px 16px;
+            padding-right: 1px;
+            padding-left: 1px;
+
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .dropdown .dropbtn img {
+            width: 15px;
+            /* Adjust the width of the logo */
+            height: 15px;
+            /* Adjust the height of the logo */
+            /* Adjust the spacing between the logo and text */
+            margin-right: 5px;
+            display: left;
+            position: relative;
+            bottom: -5px;
+
+
+        }
+
+        .dropdown .dropbtn span {
+            position: relative;
+            bottom: -1px;
+            padding: 10px 10px;
+            padding-right: 1px;
+            padding-left: 5px;
+
+
+        }
+        .logo {
+        float: left;
+        padding: 16px;
+    }
+    .logo img {
+        width: 70px;
+        height: 30px; /* Set your desired height */
+    }
+    }
+    .topnav .logo {
+        float: left;
+        padding: 16px;
+    }
+    .topnav .logo img {
+        height: 40px; /* Set your desired height */
+    } 
+</style>
+<div class="topnav">
+    <div class="logo">
+        <img src="../static/images/logo.png" alt="Company Logo">
+    </div>
+    <a id="nav_1" style="border: none;border-bottom: none;" href="sign_up" id="signup"></a></li>
+    <div class="dropdown">
+        <a class="dropbtn"><img src="../static/images/login_logo.png" alt="Login Logo"><span>
+                Login
+            </span>
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <div class="dropdown-content">
+            <a href="user_profile" id="meet">Profile</a>
+            <a href="sign_in" id="signup">Sign In</a>
+            <a href="sign_up" id="elements">Sign Up</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a class="dropbtn">Gatherings
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <div class="dropdown-content">
+            <a href="meet" id="meet">Meetings</a>
+            <a href="event" id="signup">Events</a>
+            <a href="service" id="elements">Open Categories</a>
+            <a href="service" id="elements">Service</a>
+            <a href="home" id="home">Our Team</a></li>
+
+        </div>
+    </div>
+
+    <a id="nav_1" style="text-decoration: none;border: none;border-bottom: none;"href="home" id="home">Home</a></li>
+
+
+</div>
+<body class="is-preload" style="background-color: #5e42a6;color: whitesmoke;">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="../static/opening_images/logo.svg" alt="" /></span><span
+                        class="title">Open Categories</span>
+                </a>
+        <div id="main">
+            <div class="inner">
+                <header>
+                    <p>
+                        Join our community, where we are actively contributing to the daily growth of hundreds of
+                        thousands of businesses, and together, let's make a significant impact.
+
+                        You want to joint the community click the open categories and that categories then send the message
+                    </p>
+                </header>
+                <section class="tiles">
+                    {% for cat in categories %}
+                    <article id="categoryArticle" class="categoryArticle {{cat.style}}">
+                        <span class="image">
+                            <img src="media/{{cat.categorie_image}}" alt="" />
+                        </span>
+                        <a >
+                            <h2>{{cat.open_categories}}</h2>
+                            <div class="content">
+                                <p>{{cat.slogans}}.</p>
+                            </div>
+                        </a>
+                    </article>
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer style="background-color: #5e42a6;color: whitesmoke;" id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Get in touch</h2>
+                    <form method="post" action="mail">
+                        <div class="fields">
+                            <div class="field half">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="text" name="name" id="soc" placeholder="Selected Categories" />
+                            </div>
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send" class="primary" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright" style="color: white;">
+                    <li>&copy; Jenc. All rights reserved</li>
+
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/opening_assets/js/jquery.min.js"></script>
+    <script src="../static/opening_assets/js/browser.min.js"></script>
+    <script src="../static/opening_assets/js/breakpoints.min.js"></script>
+    <script src="../static/opening_assets/js/util.js"></script>
+    <script src="../static/opening_assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // jQuery document ready function
+        $(document).ready(function () {
+    // Handle click event on any element with the class "categoryArticle"
+    $(".categoryArticle").click(function () {
+        // Get the text content of the h2 inside the clicked article
+        var selectedCategory = $(this).find("h2").text();
+        // Set the value of the #soc input field to the selected category
+        $("#soc").val(selectedCategory);
+
+        // Scroll to the footer
+        $('html, body').animate({
+            scrollTop: $("#footer").offset().top
+        }, 1000); // Adjust the duration as needed
+    });
+});
+
+    </script>
+
+
+</body>
+
+</html>

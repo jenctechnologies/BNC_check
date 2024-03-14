@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BNC Registration Form</title>
+</head>
+
+<body>
+    <h1>BNC Registration</h1>
+    <form action="" method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="button" onclick="generateRegisterId()" id="generateButton" disabled>Generate Register ID</button>
+        <button type="submit">Register</button>
+    </form>
+</body>
+<script>
+    var registerIdInput = document.getElementById('id_register_id');
+    registerIdInput.readOnly = true;
+
+    function generateRegisterId() {
+        fetch('get_next_register_id/')
+            .then(response => response.json())
+            .then(data => {
+
+                document.getElementById('id_register_id').value = data.next_register_id;
+            })
+    }
+</script>
+
+</html>

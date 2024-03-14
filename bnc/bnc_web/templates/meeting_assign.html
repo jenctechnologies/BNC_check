@@ -1,0 +1,176 @@
+{% extends 'nav_bar.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting and Event Assignment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px; /* Add margin between containers */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Center the button text */
+        .add-button {
+            display: flex;
+            align-items: center;
+        }
+        .container {
+    max-width: 800px;
+    margin: 80px auto 50px; /* Adjust the top margin to account for the sticky navigation bar */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Add margin between containers */
+}
+
+    </style>
+</head>
+<body>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="container">
+        <button id="open-meeting-form" class="add-button">+ Meeting Assign</button>
+        <div id="meeting-form-container" style="display: none;">
+            <h1>Meeting Assignment</h1>
+            
+            <form method="post" action='meeting_assign'>
+                {% csrf_token %}
+                
+                <label for="meet_title">Meeting Title:</label>
+                <input type="text" id="meet_title" name="meeting_title" required>
+                
+                <label for="meet_date">Meeting Date:</label>
+                <input type="date" id="meet_date" name="meet_date" required>
+                
+                <label for="meet_time">Meeting Time:</label>
+                <input type="time" id="meet_time" name="meet_time" required>
+                
+                <label for="meet_content">Meeting Content:</label>
+                <textarea id="meet_content" name="meeting_content" rows="4" required></textarea>
+                
+                <button type="submit">Assign Meeting</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <button id="open-assign-form" class="add-button">+ Event Assign</button>
+        
+        <div id="event-form-container" style="display: none;">
+            <h1>Event Assignment</h1>
+            
+            <form method="post" action='event_assign'>
+                {% csrf_token %}
+                
+                <label for="event_name">Event Name:</label>
+                <input type="text" id="event_name" name="event_name" required>
+                
+                <label for="event_details">Event Details:</label>
+                <textarea id="event_details" name="event_details" rows="4" required></textarea>
+                
+                <label for="event_date">Event Date:</label>
+                <input type="date" id="event_date" name="event_date" required>
+                
+                <label for="event_time">Event Time:</label>
+                <input type="time" id="event_time" name="event_time" required>
+                
+                <button type="submit">Assign Event</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        var meetingFormContainer = document.getElementById('meeting-form-container');
+        var openMeetingFormButton = document.getElementById('open-meeting-form');
+        var openeventFormButton = document.getElementById('open-assign-form');
+        var eventFormContainer = document.getElementById('event-form-container');
+
+        openMeetingFormButton.addEventListener('click', function () {
+            if (meetingFormContainer.style.display === 'none' || meetingFormContainer.style.display === '') {
+                meetingFormContainer.style.display = 'block';
+                openMeetingFormButton.innerText = "- Close Meeting Form";
+            } else {
+                meetingFormContainer.style.display = 'none';
+                openMeetingFormButton.innerText = "+ Meeting Assign";
+            }
+        });
+
+        openeventFormButton.addEventListener('click', function () {
+            if (eventFormContainer.style.display === 'none' || eventFormContainer.style.display === '') {
+                eventFormContainer.style.display = 'block';
+                openeventFormButton.innerText = "- Close Event Form";
+            } else {
+                eventFormContainer.style.display = 'none';
+                openeventFormButton.innerText = "+ Event Assign";
+            }
+        });
+    </script>
+    
+</body>
+</html>
+{% endblock %}

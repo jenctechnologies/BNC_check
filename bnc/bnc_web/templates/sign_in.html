@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../static/sign_up_asset/css/main.css" />
+
+</head>
+
+
+<body class="is-preload">
+    
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="home">BNC</a></h1>
+        <p>Sign up and start your journey today!<br /> Existing User<a href="sign_up"> Sign UP</a></p>
+    </header>
+
+    <!-- Signup Form -->
+    <form id="signup-form" method="post" action="user_form">
+        <input type="email" name="email" id="email" placeholder="Email Address" />
+        <input type="tel" name="otp" id="otp" placeholder="Enter Code" maxlength="6" pattern="[0-9]{6}" required>
+        <input type="submit" value="Sign In" />
+        <a href="{% url 'social:begin' 'google-oauth2'%}">Google+</a>
+
+    </form>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled.</li>
+            <li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../static/sign_up_asset/js/main.js"></script>
+
+</body>
+
+</html>

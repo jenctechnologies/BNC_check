@@ -1,0 +1,36 @@
+.dropdown{
+    overflow: visible;
+    z-index: 10000;
+}
+.dropdown .dropdown-content{
+    z-index: 1000;
+}
+.dropdown .dropbtn span {
+        position: relative;
+        bottom: 10px;
+        padding: 10px 10px;
+        padding-right: 1px;
+        padding-left: 5px;
+
+
+    }
+@media screen and (max-width: 768px) {
+    .dropdown .dropbtn span {
+        position: relative;
+        bottom: -5px;
+        padding: 10px 10px;
+        padding-right: 1px;
+        padding-left: 5px;
+
+
+    }
+    .dropdown .dropbtn .fa {
+        position: relative;
+        bottom: -5px;
+        padding: 10px 10px;
+        padding-right: 1px;
+        padding-left: 5px;
+
+
+    }
+}

@@ -1,0 +1,379 @@
+<style>
+    body {
+        align-items: center;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .form {
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: 500px;
+        padding: 20px;
+        width: 320px;
+    }
+
+    .title {
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        margin-top: 30px;
+    }
+
+    .subtitle {
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .input-container {
+        height: 50px;
+        position: relative;
+        width: 100%;
+    }
+
+    .ic1 {
+        margin-top: 40px;
+    }
+
+    .ic2 {
+        margin-top: 30px;
+    }
+
+    .input {
+        background-color: #303245;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        font-size: 18px;
+        height: 100%;
+        outline: 0;
+        padding: 4px 20px 0;
+        width: 100%;
+    }
+
+    .cut {
+        background-color: #15172b;
+        border-radius: 10px;
+        height: 20px;
+        left: 20px;
+        position: absolute;
+        top: -20px;
+        transform: translateY(0);
+        transition: transform 200ms;
+        width: 76px;
+    }
+
+    .cut-short {
+        width: 50px;
+    }
+
+    .input:focus~.cut,
+    .input:not(:placeholder-shown)~.cut {
+        transform: translateY(8px);
+    }
+
+    .placeholder {
+        color: #65657b;
+        font-family: sans-serif;
+        left: 20px;
+        line-height: 14px;
+        pointer-events: none;
+        position: absolute;
+        transform-origin: 0 50%;
+        transition: transform 200ms, color 200ms;
+        top: 20px;
+    }
+
+    .input:focus~.placeholder,
+    .input:not(:placeholder-shown)~.placeholder {
+        transform: translateY(-30px) translateX(10px) scale(0.75);
+    }
+
+    .input:not(:placeholder-shown)~.placeholder {
+        color: #808097;
+    }
+
+    .input:focus~.placeholder {
+        color: #dc2f55;
+    }
+
+    .submit {
+        background-color: #08d;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 50px;
+        margin-top: 38px;
+        outline: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .submit:active {
+        background-color: #06b;
+    }
+</style>
+<style>
+      .profile-pic {
+    color: transparent;
+    transition: all .3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all .3s ease;
+    
+    input {
+      display: none;
+    }
+    
+    img {
+      position: absolute;
+      object-fit: cover;
+      width: 165px;
+      height:   165px;
+      box-shadow:0 0 10px 0 rgba(255,255,255,.35);
+      border-radius: 100px;
+      z-index: 0;
+    }
+    
+    .-label {
+      cursor: pointer;
+      height: 165px;
+      width: 165px;
+    }
+    
+    &:hover {
+      .-label {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+        background-color: rgba(0,0,0,.8);
+        z-index: 10000;
+        color: rgb(250,250,250);
+        transition: background-color .2s ease-in-out;
+        border-radius: 100px;
+        margin-bottom: 0;
+      }
+    }
+    
+    span {
+      display: inline-flex;
+      padding: .2em;
+      height: 2em;
+    }
+  }
+</style>
+
+<form method="post" enctype="multipart/form-data" action="" class="form" id="multi-step-form">
+    {% csrf_token %}
+    <div class="form-step" id="step-1">
+        <div class="title">Welcome</div>
+        <div class="subtitle">Let's create your account!</div>
+        
+
+        <div class="input-container ic1">
+            {{ form.username }}
+            <div class="cut"></div>
+            <label for="{{ form.username.id_for_label }}" class="placeholder">User Name</label>
+        </div>
+
+        <div class="input-container ic2">
+            {{ form.email_address }}
+            <div class="cut"></div>
+            <label for="{{ form.email_address.id_for_label }}" class="placeholder">Email</label>
+        </div>
+
+        <button type="button" class="submit" onclick="nextStep()">Next</button>
+    </div>
+
+    <div class="form-step" id="step-2" style="display: none;">
+        <div class="input-container ic1">
+            {{ form.first_name }}
+            <div class="cut"></div>
+            <label for="{{ form.first_name.id_for_label }}" class="placeholder">First Name</label>
+        </div>
+
+        <div class="input-container ic2">
+            {{ form.last_name }}
+            <div class="cut"></div>
+            <label for="{{ form.last_name.id_for_label }}" class="placeholder">Last Name</label>
+        </div>
+        <!-- <div class="input-container ic2">
+            {{ form.date_of_birth }}
+            <div class="cut"></div>
+            <label for="{{ form.date_of_birth.id_for_label }}" class="placeholder">Dob</label>
+        </div> -->
+        <div class="input-container ic2">
+            {{ form.address }}
+            <div class="cut"></div>
+            <label for="{{ form.address.id_for_label }}" class="placeholder">Address</label>
+        </div>
+        <div class="input-container ic2">
+            {{ form.city }}
+            <div class="cut"></div>
+            <label for="{{ form.city.id_for_label }}" class="placeholder">City</label>
+        </div>
+        <div class="input-container ic2">
+            {{ form.pincode }}
+            <div class="cut"></div>
+            <label for="{{ form.pincode.id_for_label }}" class="placeholder">Pincode</label>
+        </div>
+
+
+        <button type="button" class="submit" onclick="nextStep_2()">Next</button>
+    </div>
+    <div class="form-step" id="step-3" style="display: none;">
+        <div class=" title">Contact</div>
+        <div class="subtitle"></div>
+
+        <div class="input-container ic1">
+            {{ form.instagram_link }}
+            <div class="cut"></div>
+            <label for="{{ form.instagram_link.id_for_label }}" class="placeholder">Instagram Link</label>
+        </div>
+
+        <div class="input-container ic2">
+            {{ form.whatsapp_number }}
+            <div class="cut"></div>
+            <label for="{{ form.email_address.id_for_label }}" class="placeholder">Mobile Number</label>
+        </div>
+
+        <button type="button" class="submit" onclick="nextStep_3()">Next</button>
+    </div>
+    <div class="form-step" id="step-4" style="display: none;">
+        <div class=" title">Bussiness</div>
+        <div class="subtitle">Details!</div>
+
+        <div class="input-container ic1">
+            {{ form.brand_name }}
+            <div class="cut"></div>
+            <label for="{{ form.brand_name.id_for_label }}" class="placeholder">Brand</label>
+        </div>
+
+        <div class="input-container ic2">
+            {{ form.service_name }}
+            <div class="cut"></div>
+            <label for="{{ form.service_name.id_for_label }}" class="placeholder">Service</label>
+        </div>
+        <div class="input-container ic2">
+            {{ form.company_address }}
+            <div class="cut"></div>
+            <label for="{{ form.company_address.id_for_label }}" class="placeholder">Company Address</label>
+        </div>
+
+        <button type="button" class="submit" onclick="nextStep_4()">Next</button>
+    </div>
+    <div class="form-step" id="step-5" style="display: none;">
+        <div class=" title">Welcome</div>
+        <div class="subtitle">Let's create your account!</div>
+
+        <div class="input-container ic1">
+            {{ form.register_id }}
+            <div class="cut"></div>
+            <label for="{{ form.brand_name.id_for_label }}" class="placeholder">BNC Register ID</label>
+        </div>
+
+        <div class="input-container ic2">
+            <!-- {{ form.user_image }} -->
+            <div class="cut"></div>
+            <label for="{{ form.user_image.id_for_label }}" class="placeholder">Image</label>
+        </div>
+        <div class="input-container ic2">
+            {{ form.position }}
+            <div class="cut"></div>
+            <label for="{{ form.position.id_for_label }}" class="placeholder">Position</label>
+        </div>
+        <button type="button" class="submit" onclick="nextStep_5()">Next</button>
+
+
+
+
+    </div>
+    <div class="form-step" id="step-6" style="display: none;">
+        <div class=" title">Upload Your profile Pic</div>
+        <div class="subtitle">Click the Image</div>
+        <br>
+        <br>
+        <div class="profile-pic">
+            <label class="-label" for="file">
+            <span class="glyphicon glyphicon-camera"></span>
+            <span>Upload Profile</span>
+            </label>
+            <!-- <input id="file" type="file" onchange="loadFile(event)"/> -->
+            {{ form.user_image }}
+
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png" id="output" width="200" />
+        </div>
+    </div>
+    <button id="submit_button" type="submit" class="submit" style="display:none;">Submit</button>
+
+</form>
+
+<script>
+    function nextStep() {
+        document.getElementById('step-1').style.display = 'none';
+        document.getElementById('step-2').style.display = 'block';
+    }
+    function nextStep_2() {
+        document.getElementById('step-1').style.display = 'none';
+        document.getElementById('step-2').style.display = 'none';
+        document.getElementById('step-3').style.display = 'block';
+        var registerIdInput = document.getElementById('id_register_id');
+        registerIdInput.readOnly = true;
+        fetch('user_form/get_next_register_id/')
+            .then(response => response.json())
+            .then(data => {
+
+                document.getElementById('id_register_id').value = data.next_register_id;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    // Enable the button after the page loads or after certain actions
+    function nextStep_3() {
+        document.getElementById('step-1').style.display = 'none';
+        document.getElementById('step-2').style.display = 'none';
+        document.getElementById('step-3').style.display = 'none';
+        document.getElementById('step-3').style.display = 'none';
+        document.getElementById('step-4').style.display = 'block';
+    }
+    function nextStep_4() {
+        document.getElementById('step-1').style.display = 'none';
+        document.getElementById('step-2').style.display = 'none';
+        document.getElementById('step-3').style.display = 'none';
+        document.getElementById('step-4').style.display = 'none';
+        document.getElementById('step-5').style.display = 'block';
+        document.getElementById('submit_button').style.display = 'none';
+
+    }
+    function nextStep_5() {
+        document.getElementById('step-1').style.display = 'none';
+        document.getElementById('step-2').style.display = 'none';
+        document.getElementById('step-3').style.display = 'none';
+        document.getElementById('step-4').style.display = 'none';
+        document.getElementById('step-5').style.display = 'none';
+        document.getElementById('step-6').style.display = 'block';
+        document.getElementById('submit_button').style.display = 'block';
+
+    }
+    var loadFile = function (event) {
+        console.log("run")
+  var image = document.getElementById("output");
+  image.src = URL.createObjectURL(event.target.files[0]);
+};
+
+
+
+</script>

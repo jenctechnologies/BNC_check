@@ -1,0 +1,322 @@
+{% extends 'nav_bar.html' %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {% block content %}
+    <link href="../static/meet_our_team/meet_our_team.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/meet_team_two/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../static/meet_team_two/css/noscript.css" />
+    </noscript>
+    <style>
+        .custom-card {
+        height: 550px;  /* Adjust the height as per your design */
+    }
+        .whatsapp-logo {
+            width: 50px;
+            /* Set the desired width */
+            height: 50px;
+            /* Set the desired height */
+            border-radius: 20%;
+            /* Optional: To make it a circle */
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+            margin-right: 10px !important;
+        }
+        
+    </style>
+    <style>
+        .dropdown{
+             overflow: visible;
+             z-index: 10000;
+         }
+         .dropdown .dropdown-content{
+             z-index: 1000;
+         }
+         .dropdown .dropbtn span {
+                 position: relative;
+                 bottom: 10px;
+                 padding: 10px 10px;
+                 padding-right: 1px;
+                 padding-left: 5px;
+ 
+ 
+             }
+         @media screen and (max-width: 768px) {
+             .dropdown .dropbtn span {
+                 position: relative;
+                 bottom: -5px;
+                 padding: 10px 10px;
+                 padding-right: 1px;
+                 padding-left: 5px;
+ 
+ 
+             }
+             .dropdown .dropbtn .fa {
+                 position: relative;
+                 bottom: -5px;
+                 padding: 10px 10px;
+                 padding-right: 1px;
+                 padding-left: 5px;
+                 text-decoration: none;
+                 background-color:  white !important;
+ 
+ 
+             }
+         }
+         .dropdown .dropbtn .fa {
+                 background-color:  white !important;
+ 
+ 
+             }
+        .dropdown:hover .dropbtn .fa {
+            background-color:  inherit !important;
+ 
+        }
+
+     </style>
+</head>
+
+<body>
+    <section id="header">
+        <div class="inner">
+            <span class="icon solid major fa-cloud"></span>
+            <h1>Hi,<strong>Meet Our Team</strong><br />BNC </h1>
+            <p>Dream big, work hard, achieve the impossible.</p>
+            <p>We're not just a team, we're a functional family... that gets things done</p>
+            <ul class="actions special">
+                <li><a href="#one" class="button scrolly">Click Here</a></li>
+            </ul>
+        </div>
+    </section>
+    <div id="one" class="container-fluid px-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-5">
+                <h1 id="heading" style="font-family: Arial, sans-serif;color:burlywood;" class="mb-0">SUPERIOR TEAM</h1>
+                <small id="heading0"></small>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-3 col-md-6 col-12 mb-4">
+                <div class="card text-center rounded-0 border-0 custom-card" id="card1">
+                    <div class="hex-img mt-5 mb-4">
+                        <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="founder" patternUnits="userSpaceOnUse" width="100" height="100">
+                                    <image xlink:href="media/{{founder_detail.0.founder_image}}" x="-25" width="150"
+                                        height="100" />
+                                </pattern>
+                            </defs>
+                            <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#founder)"
+                                transform="translate(x, y) scale(factor)" />
+
+                        </svg>
+                    </div>
+                    <h3 class="card-name" style="font-weight: 800;">{{founder_detail.0.founder_name}}</h3>
+                    <h4 class="card-name"
+                        style="font-weight: 200;color: #3D5AFE;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        {{founder_detail.0.founder_business_type}}</h4>
+                    <p class="position" style="font-weight: 600;">Founder & CEO</p>
+                    <div class="row mx-5 mb-5 mt-3 justify-content-center">
+                        <div class="col-3 px-0 py-1">
+                            <img class="whatsapp-logo" src="../static/opening_images/insta logo.png">
+                        </div>
+                        <div class="col-3 px-0 py-1">
+
+                        </div>
+                        <div class="col-3 px-0 py-1">
+                            <!-- <div class="py-3 fa fa-pinterest"></div> -->
+                            <img class="whatsapp-logo" src="../static/opening_images/whtsapp_logo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid px-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-3 col-md-6 col-12 mb-4">
+                <div class="card text-center rounded-0 border-0 custom-card" id="card2">
+                    <div class="hex-img mt-5 mb-4">
+                        <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="President" patternUnits="userSpaceOnUse" width="100" height="100">
+                                    <image xlink:href="media/{{president_detail.0.president_image}}" x="-25" width="150"
+                                        height="100"></image>
+                                </pattern>
+                            </defs>
+                            <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#President)" />
+                        </svg>
+                    </div>
+                    <h3 class="card-name" style="font-weight: 800;">{{president_detail.0.president_name}}</h3>
+                    <h4 class="card-name"
+                        style="font-weight: 200;color: #3D5AFE;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        {{president_detail.0.president_business_type}}</h4>
+                    <p class="position" style="font-weight: 600;">President</p>
+                    <div class="row mx-5 mb-5 mt-3 justify-content-center">
+                        <div class="col-3 px-0 py-1">
+                            <img class="whatsapp-logo" src="../static/opening_images/insta logo.png">
+                        </div>
+                        <div class="col-3 px-0 py-1">
+
+                        </div>
+                        <div class="col-3 px-0 py-1">
+                            <!-- <div class="py-3 fa fa-pinterest"></div> -->
+                            <img class="whatsapp-logo" src="../static/opening_images/whtsapp_logo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12 mb-4">
+                <div class="card text-center rounded-0 border-0 custom-card" id="card2">
+                    <div class="hex-img mt-5 mb-4">
+                        <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="Vice" patternUnits="userSpaceOnUse" width="100" height="100">
+                                    <image xlink:href="media/{{vice_detail.0.vice_president_image}}" x="-25" width="150"
+                                        height="100" />
+                                    <!-- <image xlink:href="media/superiour_image/partha.jpg" x="-25" width="150" height="100" /> -->
+                                </pattern>
+                            </defs>
+                            <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#Vice)" />
+                        </svg>
+                    </div>
+                    <h3 class="card-name" style="font-weight: 800;">{{vice_detail.0.vice_president_name}}</h3>
+                    <h4 class="card-name"
+                        style="font-weight: 200;color: #3D5AFE;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        {{vice_detail.0.vice_president_business_type}}</h4>
+                    <p class="position" style="font-weight: 600;">Vice President</p>
+                    <div class="row mx-5 mb-5 mt-3 justify-content-center">
+                        <div class="col-3 px-0 py-1">
+                            <img class="whatsapp-logo" src="../static/opening_images/insta logo.png">
+                        </div>
+                        <div class="col-3 px-0 py-1">
+
+                        </div>
+                        <div class="col-3 px-0 py-1">
+                            <!-- <div class="py-3 fa fa-pinterest"></div> -->
+                            <img class="whatsapp-logo" src="../static/opening_images/whtsapp_logo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12 mb-4">
+                <div class="card text-center rounded-0 border-0 custom-card" id="card3">
+                    <div class="hex-img mt-5 mb-4">
+                        <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="Secretary" patternUnits="userSpaceOnUse" width="100" height="100">
+                                    <image xlink:href="media/{{secretary_detail.0.secretary_image}}" x="-25" width="150"
+                                        height="100" />
+                                </pattern>
+                            </defs>
+                            <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#Secretary)" />
+                        </svg>
+                    </div>
+                    <h3 class="card-name" style="font-weight: 800;">{{secretary_detail.0.secretary_name}}</h3>
+                    <h4 class="card-name"
+                        style="font-weight: 200;color: #3D5AFE;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        {{secretary_detail.0.secretary_business}}</h4>
+                    <p class="position" style="font-weight: 600;">Secretary</p>
+                    <div class="row mx-5 mb-5 mt-3 justify-content-center">
+                        <div class="col-3 px-0 py-1">
+                            <img class="whatsapp-logo" src="../static/opening_images/insta logo.png">
+                        </div>
+                        <div class="col-3 px-0 py-1">
+
+                        </div>
+                        <div class="col-3 px-0 py-1">
+                            <!-- <div class="py-3 fa fa-pinterest"></div> -->
+                            <img class="whatsapp-logo" src="../static/opening_images/whtsapp_logo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid px-5 py-5">
+                <div class="row justify-content-center">
+                    {% for team in team_members %}
+                    <div class="col-xl-3 col-md-6 col-12 mb-4">
+                        <div class="card text-center rounded-0 border-0 custom-card" id="card2">
+                            <div class="hex-img mt-5 mb-4">
+                                <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <pattern id="img{{ forloop.counter }}" patternUnits="userSpaceOnUse" width="100"
+                                            height="100">
+                                            <image xlink:href="media/{{ team.members_image }}" x="-25" width="150"
+                                                height="100" />
+                                        </pattern>
+                                    </defs>
+                                    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25"
+                                        fill="url(#img{{ forloop.counter }})" />
+                                </svg>
+                                <h3 class="card-name" style="font-weight: 800;">{{ team.name }}</h3>
+                                <h4 class="card-name"
+                                    style="font-weight: 200;color: #3D5AFE;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                                    {{ team.business_type }}</h4>
+                                <p class="position" style="font-weight: 600;">{{ team.position }}</p>
+                            </div>
+                            <!-- rest of your card content -->
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mb-5">
+                    <h1 id="heading" style="font-family: Arial, sans-serif;color:burlywood;" class="mb-0">CO-ODINATORS
+                        TEAM</h1>
+                    <small id="heading0"></small>
+                </div>
+            </div>
+            <div class="container-fluid px-5 py-5">
+                <div class="row justify-content-center">
+                    {% for team_2 in coordinate_team %}
+                    <div class="col-xl-3 col-md-6 col-12 mb-4">
+                        <div class="card text-center rounded-0 border-0 custom-card" id="card2">
+                            <div class="hex-img mt-5 mb-4">
+                                <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <pattern id="img1{{ forloop.counter }}" patternUnits="userSpaceOnUse" width="100"
+                                            height="100">
+                                            <image xlink:href="media/{{ team_2.members_image }}" x="-25" width="150"
+                                                height="100" />
+                                        </pattern>
+                                    </defs>
+                                    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25"
+                                        fill="url(#img1{{ forloop.counter }})" />
+                                </svg>
+                                <h3 class="card-name" style="font-weight: 800;">{{ team_2.name }}</h3>
+                                <h4 class="card-name"
+                                    style="font-weight: 200;color: #3D5AFE;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                                    {{ team_2.business_type }}</h4>
+                                <p class="position" style="font-weight: 600;">{{ team_2.position }}</p>
+                                <div class="row mx-5 mb-5 mt-3 justify-content-center">
+                                    <div class="col-3 px-0 py-1">
+                                        <img class="whatsapp-logo" src="../static/opening_images/insta logo.png">
+                                    </div>
+                                    <div class="col-3 px-0 py-1">
+            
+                                    </div>
+                                    <div class="col-3 px-0 py-1">
+                                        <!-- <div class="py-3 fa fa-pinterest"></div> -->
+                                        <img class="whatsapp-logo" src="../static/opening_images/whtsapp_logo.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- rest of your card content -->
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+</body>
+{% endblock %}
